@@ -1,0 +1,719 @@
+html,
+body {
+    height: 100%;
+    min-height: 100%;
+    /* for firefox */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    font-family: myFirstFont;
+    color: #cfd2c8;
+    overflow-x: hidden;
+}
+
+
+/******************
+FONTS
+******************/
+
+@font-face {
+    font-family: myFirstFont;
+    src: url(./fonts/Dosis-Regular.otf);
+}
+
+@font-face {
+    font-family: mySecondFont;
+    src: url(./fonts/AlexBrush-Regular.ttf);
+}
+
+@font-face {
+    font-family: myThirdFont;
+    src: url(./fonts/CaviarDreams.ttf);
+}
+
+
+/************************
+ Links etc.
+*************************/
+
+a:hover {
+    color: #cfd2c8;
+}
+
+a:visited {}
+
+p {
+    font-family: myFirstFont;
+}
+
+
+/************************
+    Slide Out Menu
+*************************/
+
+.menu {
+    background: #111;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 0;
+    font-size: 2em;
+}
+
+.line {
+    border-bottom: 1px solid #cfd2c8;
+}
+
+.menu ul {
+    float: right;
+    text-align: center;
+    position: relative;
+    top: 100px;
+}
+
+.menu li {
+    list-style: none;
+    left: -75px;
+    margin: 20px 70px 0 0;
+}
+
+.slide-icons li {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    position: relative;
+    top: 350px;
+    left: 122px;
+    margin: 10px;
+}
+
+
+/* unvisited link */
+
+.menu a:link {
+    color: #cfd2c8;
+    text-decoration: none;
+}
+
+
+/* visited link */
+
+.menu a:visited {
+    color: #cfd2c8;
+}
+
+
+/* mouse over link */
+
+.menu a:hover {
+    color: #d3531a;
+    text-decoration: underline;
+}
+
+.slide-icons a:hover {
+    text-decoration: none;
+}
+
+
+/* selected link */
+
+.menu a:active {
+    color: #d3531a;
+    text-decoration: underline;
+}
+
+#button {
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    width: 30px;
+    height: 25px;
+    margin: 0 auto;
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .5s ease-in-out;
+    transition: .5s ease-in-out;
+    cursor: pointer;
+    z-index: 1;
+}
+
+#button span {
+    display: block;
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    background: #d3531a;
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    -webkit-transition: .25s ease-in-out;
+    transition: .25s ease-in-out;
+}
+
+#button span:nth-child(1) {
+    top: 15px;
+}
+
+#button span:nth-child(2) {
+    top: 23px;
+}
+
+#button span:nth-child(3) {
+    top: 31px;
+}
+
+#button.open span:nth-child(1) {
+    top: 25px;
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg);
+}
+
+#button.open span:nth-child(2) {
+    opacity: 0;
+    left: -60px;
+}
+
+#button.open span:nth-child(3) {
+    top: 25px;
+    -webkit-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+}
+
+
+/************************
+            Navigation
+    *************************/
+
+.nav-wrapper {
+    position: absolute;
+}
+
+.nav {
+    visibility: hidden;
+    position: fixed;
+    height: 70px;
+    width: 100%;
+    color: #cfd2c8;
+    text-align: right;
+    background-color: dimgrey;
+    z-index: 1;
+    opacity: .8;
+}
+
+.nav li {
+    display: inline-block;
+    height: 45px;
+    width: 10%;
+    margin: 0;
+    font-size: 14px;
+    padding: 25px 2% 0 2%;
+    text-align: center;
+}
+
+.nav li:last-child {
+    margin-right: 10px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #cfd2c8;
+}
+
+.nav li:hover {
+    background: #333;
+}
+
+.logo {
+    position: fixed;
+    float: left;
+    border: 3px solid;
+    margin: 10px 0 0 15px;
+    padding: 2px 5px 2px 2px;
+    z-index: 2;
+}
+
+.active {
+    background: #25aae1;
+}
+
+
+/************************
+         Intro
+    *************************/
+
+.wrapper {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    position: relative;
+}
+
+.intro {
+    background-color: #2f4f4f;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+
+/**Title***/
+
+.title {
+    height: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.title h1 {
+    font-size: 1.4em;
+    padding-left: 0px;
+}
+
+.name {
+    visibility: hidden;
+    font-family: mysecondfont;
+    font-size: 4em;
+}
+
+.title ul {
+    list-style: none;
+    font-size: .8em;
+    position: relative;
+    top: 30px;
+    left: 10px;
+}
+
+.color {
+    color: #589472;
+}
+
+.sub-title-two {
+    line-height: 1.5em;
+    color: black;
+}
+
+.fade-in {
+    width: 70%;
+    height: 1.5em;
+    position: absolute;
+    background-color: #2f4f4f;
+}
+
+
+/************************
+         About Me
+    *************************/
+
+.about {
+    background-color: #9CAFB7;
+    color: black;
+}
+
+.about-wrapper {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-flow: wrap;
+    -ms-flex-flow: wrap;
+    flex-flow: wrap;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.about-paras,
+.skills-paras {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    margin: 10px;
+}
+
+.skills-paras {}
+
+.about-paras p,
+.skills-paras p {}
+
+.about a {
+    color: darkblue;
+}
+
+.about a:hover {
+    color: #cfd2c8;
+}
+
+.pic {
+    /**Displayed None For Mobile**/
+    display: none;
+}
+
+.skills-logos {
+    /**Displayed None For Mobile**/
+    display: none;
+}
+
+.skills-logos img {}
+
+
+/************************
+         Projects
+    ************************/
+
+.projects {
+    background-color: #cfd2c8
+    /*#589472*/
+    ;
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-flow: row;
+    -ms-flex-flow: row;
+    flex-flow: row;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+
+/************************
+         Work
+    *************************/
+
+
+/************************
+         School
+    *************************/
+
+
+/************************
+         Contact
+    *************************/
+
+.contact {
+    background-color: #232928;
+    width: 100%;
+    height: 240px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-flow: column;
+    -ms-flex-flow: column;
+    flex-flow: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.col {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-flow: column;
+    -ms-flex-flow: column;
+    flex-flow: column;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.contact li {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    list-style: none;
+    margin: 0 10px;
+    position: relative;
+    left: 10px;
+}
+
+.contact h2 {
+    text-decoration: underline;
+}
+
+.contact a {
+    color: #cfd2c8;
+    text-decoration: none;
+}
+
+.contact a:hover {
+    color: #589472;
+}
+
+.icons li:hover {
+    color: #589472;
+    cursor: pointer;
+}
+
+.call p:hover {
+    cursor: pointer;
+    color: #589472;
+}
+
+
+/************************
+  Media Queries
+*************************/
+
+
+/*----- Above is Mobile screens up to 320px ----------- */
+
+
+/*----- Mobile screens 321px to 375px ----------- */
+
+@media (min-width: 321px) {
+    /*--Slide Out Menu--*/
+    .menu ul {}
+    /*--About--*/
+    .about {
+        height: 120%;
+    }
+    .about-paras {
+        margin-top: 15%;
+    }
+}
+
+
+/*----- Mobile screens 375px to 425px ----------- */
+
+@media (min-width: 375px) {
+    /*--About--*/
+    .about {
+        height: 110%;
+    }
+    .about-paras {
+        margin-top: 20%;
+    }
+}
+
+
+/*----- Mobile screens 425px to 500px ----------- */
+
+@media only screen and (min-width: 425px) {}
+
+
+/*----- Mobile screens 500px to 670px ----------- */
+
+@media only screen and (min-width: 500px) {
+    /**Title***/
+    .title h1 {
+        font-size: 1.6em;
+        padding-left: 0px;
+    }
+    .name {
+        font-size: 6em;
+    }
+    .sub-title-one {
+        font-size: 1.6em;
+        position: relative;
+        top: -15px;
+    }
+    .sub-title-two {
+        font-size: 1.3em;
+        position: relative;
+        top: -10px;
+    }
+    .title ul {
+        position: relative;
+        top: 30px;
+        left: 10px;
+    }
+    /*--About--*/
+    .about {
+        height: 100%;
+        font-size: 1.15em;
+    }
+    .about-paras {
+        margin: 10% 20px 20px 20px;
+    }
+    .skills-paras {
+        margin: 0px 20px;
+    }
+    /**Footer Contact***/
+    .contact {
+        -webkit-flex-flow: row;
+        -ms-flex-flow: row;
+        flex-flow: row;
+    }
+    .col {
+        -webkit-box-flex: 1;
+        -webkit-flex-grow: 1;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+    }
+}
+
+
+/*----- Screens 670px to 768px ----------- */
+
+@media only screen and (min-width: 670px) {
+    /**Menu Button Displayed None For Large Screens**/
+    #button {
+        display: none;
+    }
+    .nav {
+        visibility: visible;
+    }
+    /**Title***/
+    .title h1 {
+        font-size: 1.8em;
+        padding-left: 0px;
+    }
+    .name {
+        font-size: 7em;
+    }
+    .sub-title-one {
+        font-size: 1.8em;
+        position: relative;
+        top: -15px;
+    }
+    .sub-title-two {
+        font-size: 1.3em;
+        position: relative;
+        top: -10px;
+    }
+    .title ul {
+        position: relative;
+        top: 30px;
+        left: 10px;
+    }
+    /**About***/
+    .about {
+        font-size: 1.12em;
+    }
+    .about-paras {
+        margin-top: 5%;
+    }
+    .pic {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        position: relative;
+        top: 70px;
+        margin-left: 20px;
+    }
+    .skills-logos {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        position: relative;
+        top: 70px;
+        margin-left: 20px;
+    }
+}
+
+
+/*----- Tablet screens 768px to 1100px ----------- */
+
+@media only screen and (min-width: 768px) {
+    .logo {
+        margin: 10px 0 0 35px;
+    }
+    /**About***/
+    .about {
+        font-size: 1.2em;
+    }
+    .about-paras {}
+    .about-paras,
+    .skills-paras {
+        max-width: 800px;
+    }
+    .contact {
+        font-size: 1.2em;
+    }
+    .contact h2 {
+        margin-bottom: 12px;
+    }
+}
+
+
+/* Mid size screens 1100px to 1700px ----------- */
+
+@media only screen and (min-width: 1090px) {
+    /**About***/
+    .about {
+        font-size: 1.4em;
+    }
+    .about-wrapper {}
+    .about-paras {
+        margin-top: 8%;
+    }
+    .about-paras,
+    .skills-paras {
+        max-width: 1000px;
+    }
+    .pic {
+        padding-left: 50px;
+    }
+    .skills-logos {
+        padding-left: 50px;
+        left: 20px;
+    }
+    .contact {
+        font-size: 1.3em;
+    }
+}
+
+
+/* Large Screens 1700px up ----------- */
+
+@media only screen and (min-width: 1690px) {
+    /**About***/
+    .about-paras,
+    .skills-paras {
+        max-width: 1200px;
+    }
+    .skills-logos {
+        left: 25px;
+    }
+}
